@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+
+	<named-query name="Client.findByNomJPQL">
+		<query>SELECT c FROM Client c where c.nom = ?1</query>
+	</named-query>
+
+
+	<named-query name="Promotion.findByproduitJPQL">
+		<query>SELECT p FROM Promotion p where p.produit.idProd = ?1</query>
+	</named-query>
+
+
+
+	<named-query name="Ligne_Commande.findByIdCommandeJPQL">
+		<query>SELECT lc FROM Ligne_Commande lc where lc.commande.idCommande = ?1</query>
+	</named-query>
+
+	<named-query name="Commande.findByCommandeJPQL">
+		<query>SELECT c FROM Commande c where c.client.id = ?1</query>
+	</named-query>
+
+	<named-native-query name="Categorie.findAll"
+		result-class="com.msglc.entites.Categorie">
+		<query>SELECT * FROM Categorie</query>
+	</named-native-query>
+
+	<named-native-query name="Produit.findByCategorie"
+		result-class="com.msglc.entites.Produit">
+		<query>SELECT * FROM produit where idCategorie = :id</query>
+	</named-native-query>
+
+
+	<named-native-query name="Promotion.findByproduit"
+		result-class="com.msglc.entites.Promotion">
+		<query>SELECT * FROM Promotion where idProd = :id</query>
+	</named-native-query>
+
+</entity-mappings>

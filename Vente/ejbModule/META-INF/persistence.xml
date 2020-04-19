@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="Vente"
+		transaction-type="JTA">
+		<jta-data-source>java:/dsvente</jta-data-source>
+		
+		<mapping-file>META-INF/queries.xml</mapping-file>
+		
+		<class>com.msglc.entites.Personne</class>
+		<class>com.msglc.entites.Client</class>
+		<class>com.msglc.entites.Administrateur</class>
+		<class>com.msglc.entites.Commande</class>
+		<class>com.msglc.entites.Ligne_CommandePK</class>
+		<class>com.msglc.entites.Ligne_Commande</class>
+		<class>com.msglc.entites.Produit</class>
+		<class>com.msglc.entites.Promotion</class>
+		<class>com.msglc.entites.Categorie</class>
+
+
+		
+			
+		<properties>
+			<property
+				name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+		</properties>
+	</persistence-unit>
+</persistence>
